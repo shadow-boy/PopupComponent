@@ -315,4 +315,21 @@ showAnimation() {
     }
 
 ```
-*LWAlertComponent* 这个组件就是集成自最基础自定义的
+*LWAlertComponent* 这个组件就是经过封装的自定义组件、上面是使用方法
+
+## 4 再最后看看最原始的使用方法
+```
+ <PopupWindow>
+  <View>
+     <View></View>
+     <Text></Text>
+  </View>
+</PopupWindow>
+```
+
+#### 目前使用方法只提供了ref 调用的方式。
+#### 最后附上完整demo 地址 方便的话点下小星星
+[github 地址](https://github.com/shadow-boy/PopupComponent)
+
+
+
