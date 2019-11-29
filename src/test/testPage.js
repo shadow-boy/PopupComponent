@@ -18,34 +18,21 @@ import {
 
 import PopupWindow from "./popup/Popup";
 import LWAlertComponent from './popup/LWAlertComponent';
+import WebService from '../api/webService';
 
 let id = 0;
 let elements = [];
 export default class TestPageComponent extends Component {
 
-    addSibling = () => {
-        let sibling = new RootSiblings(
-            <PopupWindow>
+    componentDidMount() {
+        WebService.postRequest("TenantAdminFacade/login", ['tadmin','123456','']).then((res) => {
 
-            </PopupWindow>
-        );
-        id++;
-        elements.push(sibling);
-    };
+          console.log(res) 
 
-    destroySibling = () => {
-        let lastSibling = elements.pop();
-        lastSibling && lastSibling.destroy();
-    };
+        })
+    }
 
-    updateSibling = () => {
-        let lastId = elements.length - 1;
-        lastId >= 0 && elements[lastId].update(<View
-            style={[styles.sibling, { top: lastId * 20 }]}
-        >
-            <Text>I`m No.{lastId} : {Math.random()}</Text>
-        </View>);
-    };
+
 
     showAnimation() {
         console.log(this.pop);

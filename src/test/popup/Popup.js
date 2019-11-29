@@ -109,7 +109,6 @@ export default class PopupWindow extends Component {
 
                     if (onTouchUpMask != 'undefined' && onTouchUpMask != null) {
                         onTouchUpMask();
-                        debugger
                         return;
                     }
                     if (touchUpDismiss) {
