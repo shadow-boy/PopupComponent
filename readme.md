@@ -5,7 +5,7 @@
 之前写了很长时间的iOS原生、一直觉得[MMPopupView](https://github.com/adad184/MMPopupView)这个组件非常好用，当然还有一些其他的swift库，这个不是今天的重点，下次有空在介绍了。
 
 先来看看效果
-![react-native 弹窗效果图](https://upload-images.jianshu.io/upload_images/1226938-890fcefdaa3b5f29.gif?imageMogr2/auto-orient/strip)
+![react-native 弹窗效果图](https://raw.githubusercontent.com/shadow-boy/PopupComponent/83e2367634f3ad5dc5d5bf804a09fe526c301f1d/gif/QQ20191128-232025-HD.gif)
 并且是纯js版本、不需要分别对安卓和iOS做任何类似react-native link的处理
 
 ## 2、看看代码
