@@ -1,6 +1,7 @@
 
 
 import http from './http';
+import HttpResponseKeys from './httpResKey';
 
 export default class WebService {
 
@@ -19,7 +20,7 @@ export default class WebService {
 
         return http.post(action, paramters)
             .then((response) => {
-                return response.data;
+                return response.data[HttpResponseKeys.Field.key_data];
             })
             .catch((error) => {
                 console.log("http request error");
@@ -42,7 +43,7 @@ export default class WebService {
         return http.get(action, paramters)
             .then((response) => {
 
-                return response.data;
+                return response.data[HttpResponseKeys.Field.key_data];
             })
             .catch((error) => {
                 console.log("http request error");

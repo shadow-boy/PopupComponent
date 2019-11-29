@@ -18,8 +18,8 @@ instance.interceptors.request.use(function (config) {
     // 在发送请求之前
 
     console.log(config, `接口参数`)
-    let headerToken = {"token":"this is token for http header field"};
-    config.headers = Object.assign(JSON_REQ_RES_SERILIZATION,headerToken);
+    let headerToken = { "token": "this is token for http header field" };
+    config.headers = Object.assign(JSON_REQ_RES_SERILIZATION, headerToken);
     return config;
 }, function (error) {
     // 对请求错误
@@ -32,16 +32,16 @@ instance.interceptors.response.use(function (response) {
     let _data = response.data;
     console.log(_data, `接口返回数据来自:${response.request.responseURL}`);
     let success = _data[HttpResponseKeys.Field.key_status];
-    if (success == true){
+    if (success == true) {
         return response;
     }
-    else{
+    else {
         console.log("数据错误哦、拦截器已经拦截、response ---- ")
         console.log(response);
     }
 
-    
-   
+
+
 }, function (error) {
     console.log(error)
 
