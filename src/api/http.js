@@ -8,7 +8,8 @@ const JSON_REQ_RES_SERILIZATION = {
 };
 
 const instance = axios.create({
-    baseURL: "http://gang.wegongxiang.com/api/gw/",
+    // baseURL: "http://m.maoyan.com/ajax/",
+    baseURL:"http://www.hehe.com/",
     timeout: 6000,
     headers: JSON_REQ_RES_SERILIZATION
 });
@@ -19,7 +20,7 @@ instance.interceptors.request.use(function (config) {
 
     console.log(config, `接口参数`)
     let headerToken = { "token": "this is token for http header field" };
-    config.headers = Object.assign(JSON_REQ_RES_SERILIZATION, headerToken);
+    config.headers = Object.assign(headerToken,JSON_REQ_RES_SERILIZATION);
     return config;
 }, function (error) {
     // 对请求错误
@@ -28,17 +29,20 @@ instance.interceptors.request.use(function (config) {
 
 //返回拦截处理
 instance.interceptors.response.use(function (response) {
+    console.log("response --- ")
+    console.log(response)
+    return response.data
 
-    let _data = response.data;
-    console.log(_data, `接口返回数据来自:${response.request.responseURL}`);
-    let success = _data[HttpResponseKeys.Field.key_status];
-    if (success == true) {
-        return response;
-    }
-    else {
-        console.log("数据错误哦、拦截器已经拦截、response ---- ")
-        console.log(response);
-    }
+    // let _data = response.data;
+    // console.log(_data, `接口返回数据来自:${response.request.responseURL}`);
+    // let success = _data[HttpResponseKeys.Field.key_status];
+    // if (success == true) {
+    //     return response;
+    // }
+    // else {
+    //     console.log("数据错误哦、拦截器已经拦截、response ---- ")
+    //     console.log(response);
+    // }
 
 
 

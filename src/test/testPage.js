@@ -25,13 +25,27 @@ let elements = [];
 export default class TestPageComponent extends Component {
 
     componentDidMount() {
-        WebService.postRequest("TenantAdminFacade/login", ['tadmin','123456','']).then((res) => {
-
-          console.log(res) 
-
-        })
+        this.loadData();
     }
 
+    async loadData() {
+
+        // WebService.getRequest("movieOnInfoList", {}).then((res) => {
+        //
+        //     console.log(res)
+        //
+        // })
+        try {
+            let data = await WebService.getRequest("movieOnInfoList11", {});
+            console.log(data)
+        } catch (e) {
+
+            console.log("业务模块 。。收到的回调错误 ---- ");
+            console.log(e);
+        }
+
+
+    }
 
 
     showAnimation() {
@@ -61,11 +75,11 @@ export default class TestPageComponent extends Component {
                 <Text style={styles.buttonText}>Update element</Text>
             </TouchableHighlight> */}
             <LWAlertComponent ref="pop"
-                touchUpDismiss={false}
-                onTouchUpMask={() => {
-                    console.log('onTouchUpMask');
-                    this.refs.pop.hide();
-                }}
+                              touchUpDismiss={false}
+                              onTouchUpMask={() => {
+                                  console.log('onTouchUpMask');
+                                  this.refs.pop.hide();
+                              }}
             >
             </LWAlertComponent>
             <PopupWindow>

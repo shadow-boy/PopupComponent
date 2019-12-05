@@ -1,11 +1,7 @@
-
-
 import http from './http';
 import HttpResponseKeys from './httpResKey';
 
 export default class WebService {
-
-
 
 
     static postRequest(action = "", param) {
@@ -42,8 +38,8 @@ export default class WebService {
         var paramters = param
         return http.get(action, paramters)
             .then((response) => {
-
-                return response.data[HttpResponseKeys.Field.key_data];
+                return response;
+                // return response.data[HttpResponseKeys.Field.key_data];
             })
             .catch((error) => {
                 console.log("http request error");
@@ -57,7 +53,7 @@ export default class WebService {
 
 /**
  * 统一加密处理参数
- * @param {参数对象}} data 
+ * @param {参数对象}} data
  */
 function requestEncrypt(data) {
     let json_data = JSON.stringify(data)
